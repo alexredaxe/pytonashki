@@ -28,8 +28,10 @@ pArray = [
     ["13", "14", "15", "__"]
 ]
 
-pArrayOriginal=pArray[:]
+pArrayOriginal = pArray[:]
 
+for i in range(len(pArray)):
+    pArray[i] = mat(pArray[i])
 pArray = mat(pArray)
 
 while True:
@@ -38,7 +40,7 @@ while True:
         for j in range(len(pArray[i])):
             print(pArray[i][j], end=" ")
         print()
-    if pArray==pArrayOriginal:
+    if pArray == pArrayOriginal:
         print("Вы выиграли. Игра закончена")
         break
     sym = input("Введите номер фишки или exit:")
@@ -53,7 +55,7 @@ while True:
         if 0 < int(sym) < 10:
             sym = "0" + sym
         row, col = getArrIndex(fArray=pArray, fElem=sym)
-        #print(row, col)
+        # print(row, col)
         if (3 >= row >= 0) and (3 >= col >= 0):
             if row == 0:
                 row_prev = 0
